@@ -4,3 +4,67 @@
 #MoreInfoContent {
     height: 796px; 
 }
+#gradient{
+    width: 100%;
+    height: 400px;
+    position: absolute;
+    top:412px;
+    background: linear-gradient(#00000000, #000000);
+}
+#gradient2{
+    width: 100%;
+    height: 100px;
+    position: absolute;
+    top:1492px;
+    background: linear-gradient(#00000000, #000000);
+}
+.heading1{
+    z-index: 1;
+    color: white;
+    position: relative;
+    top:100px;
+    float: left;
+    left:5%;
+    font-size: 62px;
+    display: block;
+}
+.heading2{
+    z-index: 1;
+    color: white;
+    position: relative;
+    top:350px;
+    right:25%;
+    float: left;
+    font-size: 36px;
+    display: block;
+}
+
+#searchButton{
+    z-index: 1;
+    color: white;
+    position: relative;
+    top:550px;
+    right:50%;
+    float: left;
+    font-size: 18px;
+    display: block;
+    background-color: rgba(0, 0, 0, 0.493);
+    border: none;
+    border-radius: 5%;
+    padding: 1% 2%;
+}
+
+#infoButton{
+    z-index: 1;
+    color: white;
+    position: relative;
+    top:650px;
+    right:25%;
+    float: left;
+    font-size: 18px;
+    display: block;
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    border-radius: 5%;
+    padding: 1% 2%;
+}
