@@ -3,7 +3,7 @@ import SearchIcon from './../../Images/searchIcon.png';
 
 class SearchBar extends Component {
     state = {
-        searchTerm: 'search samples'
+        searchTerm: ''
     }
     handleChange(e,props){
         this.setState({searchTerm:e.target.value})
@@ -30,8 +30,8 @@ class SearchBar extends Component {
         }
         return (
             <div>
-                <input onChange={(e)=>this.handleChange(e,this.props)} style={styles.bar} name="" id="" class="btn btn-primary" type="text" value={this.state.searchTerm} />
-                <img src={SearchIcon} style={styles.icon} />
+                <input onChange={(e)=>this.handleChange(e,this.props)} style={styles.bar} name="" id="" class="btn btn-primary" type="text" placeholder='search samples' value={this.state.searchTerm} />
+                <img src={SearchIcon} style={styles.icon} onClick={this.props.handleSearch}/>
             </div>
         );
     }
