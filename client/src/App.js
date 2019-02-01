@@ -10,7 +10,7 @@ class App extends Component {
     return (
       <div className="App">
       <nav style={{background:`black`,width:`100%`,height:`60px`,top:`0`}} >
-      <p style={{float:`left`,paddingLeft:`20px`,color:`white`}}>ample</p>
+      <a href='/' style={{float:`left`,paddingLeft:`20px`,color:`white`, textDecoration:`none`}}> ample</a>
       <p style={{float:`right`,paddingRight:`20px`,color:`white`}}>login | join</p>
       </nav>
         <Router>

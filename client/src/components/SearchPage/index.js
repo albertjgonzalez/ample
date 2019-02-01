@@ -6,6 +6,7 @@ import './style.css';
 class SearchPage extends Component {
 
     state = {
+      searchedSamples: [],
       search: false,
       header:'',
       term: 'search samples',
@@ -29,7 +30,8 @@ class SearchPage extends Component {
           height:`200px`,
           backgroundColor: 'black',
           display:`inline-block`,
-          margin:`20px`
+          margin:`20px`,
+          color:`white`
         }
       }
   }
@@ -40,38 +42,45 @@ setSearchTerm(e){
 handleSearch(){
   this.setState({search:true})
   this.setState({header:this.state.term})
-  let sample = {
-    sample:
-    {
-  name:`soft-kick`,
-  type:'kick',
-  link:'www.link.com'
-}
-  }
-  API.saveSample(sample)
-  .then(res => {
-    console.log(res)
-  })
-  .catch(err => console.log(err))
+  this.searchSamples(this.state.term)
 }
 createCards(styles){
   let children = [];
-  for(let i = 0;i<11;i++){
-      i++
+  this.state.searchedSamples.map(sample=>{
       children.push(
-        <div style={styles.card}className='sampleCard' >
-
-          </div>
-        )
-      }    
+      <div style={styles.card}className='sampleCard' >
+          {sample.link}
+        </div>
+      )
+  })
+        
       return children  
 }
 handleClick(e){
   this.setState({term:e.target.text})
   this.setState({search:true})
   this.setState({header:this.state.term}) 
+  this.searchSamples(this.state.term)
 }
+saveSample(){
+  let sample = {
 
+    name:`soft-kick`,
+    type:'kick',
+    link:'www.link.com'
+  
+    }
+    API.saveSample(sample)
+    .then(res => {
+      console.log(res)
+    })
+    .catch(err => console.log(err))
+}
+searchSamples(type){
+API.getsample(type)
+.then(res=>this.setState({searchedSamples:res.data}))
+.catch(err=>console.log(err))
+}
   render() {
     const styles = this.state.styles
       return (

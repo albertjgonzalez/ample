@@ -1,4 +1,5 @@
 module.exports = {
-    samples: require("./sample")
+    samples: require("./sample"),
+    token: require("./token")
   };
   
