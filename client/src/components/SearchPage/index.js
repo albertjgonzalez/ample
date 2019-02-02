@@ -1,6 +1,8 @@
 import  React, { Component } from 'react';
 import API from '../../utils/API';
-import SearchBar from './../SearchBar'
+import SearchBar from './../SearchBar';
+import cardBackground from './../../Images/cardBackground.png';
+import StripeCheckout from './../StripeCheckout';
 import './style.css';
 
 class SearchPage extends Component {
@@ -22,8 +24,9 @@ class SearchPage extends Component {
         cardHolder: {
             width:`80%`,
             height:`60%`,
-            backgroundColor: `yellow`,
-            margin: `auto`
+            backgroundColor: `white`,
+            margin: `auto`,
+            marginTop: `5%`
         },
         card: {
           width:`200px`,
@@ -31,13 +34,16 @@ class SearchPage extends Component {
           backgroundColor: 'black',
           display:`inline-block`,
           margin:`20px`,
-          color:`white`
+          color:`white`,
+          float: `left`,
+          backgroundImage: `url(${ cardBackground })`,
+          backgroundSize: `cover`
         }
       }
   }
 
 setSearchTerm(e){
-   this.setState({term:`'${e.target.value}'`})
+   this.setState({term:`${e.target.value}`})
 }
 handleSearch(){
   this.setState({search:true})
@@ -49,7 +55,11 @@ createCards(styles){
   this.state.searchedSamples.map(sample=>{
       children.push(
       <div style={styles.card}className='sampleCard' >
-          {sample.link}
+      <h1>{sample.name}</h1>
+          <a href={sample.link} download={sample.name}>
+          download
+       </a>
+       <StripeCheckout />
         </div>
       )
   })
@@ -57,7 +67,7 @@ createCards(styles){
       return children  
 }
 handleClick(e){
-  this.setState({term:e.target.text})
+  this.setState({term:e.target.innerHTML})
   this.setState({search:true})
   this.setState({header:this.state.term}) 
   this.searchSamples(this.state.term)
@@ -65,9 +75,9 @@ handleClick(e){
 saveSample(){
   let sample = {
 
-    name:`soft-kick`,
-    type:'kick',
-    link:'www.link.com'
+    name:`DBZ-vocal`,
+    type:'vocals',
+    link:'https://s3.us-east-2.amazonaws.com/amplesample/vocals/DBZ-vocal.wav'
   
     }
     API.saveSample(sample)
@@ -81,18 +91,19 @@ API.getsample(type)
 .then(res=>this.setState({searchedSamples:res.data}))
 .catch(err=>console.log(err))
 }
+
+
   render() {
     const styles = this.state.styles
       return (
         <div id='SearchContent'style={styles.main} >
           <SearchBar updateTerm={(e)=>this.setSearchTerm(e)} handleSearch={()=>this.handleSearch()} />
           <div style={styles.links} >
-            <a onClick={(e)=>this.handleClick(e)} className='SearchLink' value={this.props.children}>kicks</a>  |  
-            <a onClick={(e)=>this.handleClick(e)} className='SearchLink' value={this.props.children}>hats</a>  |  
-            <a onClick={(e)=>this.handleClick(e)} className='SearchLink' value={this.props.children}>snares</a>  | 
-            <a onClick={(e)=>this.handleClick(e)} className='SearchLink' value={this.props.children}>synths</a>  | 
-            <a onClick={(e)=>this.handleClick(e)} className='SearchLink' value={this.props.children}>vocals</a>
-   
+            <button onClick={(e)=>this.handleClick(e)} className='SearchLink' value={this.props.children}>kicks</button>
+            <button onClick={(e)=>this.handleClick(e)} className='SearchLink' value={this.props.children}>hats</button>
+            <button onClick={(e)=>this.handleClick(e)} className='SearchLink' value={this.props.children}>snares</button>
+            <button onClick={(e)=>this.handleClick(e)} className='SearchLink' value={this.props.children}>synths</button>
+            <button onClick={(e)=>this.handleClick(e)} className='SearchLink' value={this.props.children} name={'vocals'}>vocals</button>
           </div>
           {
             !this.state.search ?

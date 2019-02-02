@@ -1,5 +1,8 @@
+@import url('https://fonts.googleapis.com/css?family=Arimo:700');
+
 #HomeContent {
     height: 796px; 
+    font-family: 'Arimo', sans-serif;
 }
 #MoreInfoContent {
     height: 796px; 
@@ -35,7 +38,7 @@
     top:350px;
     right:25%;
     float: left;
-    font-size: 36px;
+    font-size: 28px;
     display: block;
 }
 
@@ -44,7 +47,7 @@
     color: white;
     position: relative;
     top:550px;
-    right:50%;
+    right:45%;
     float: left;
     font-size: 18px;
     display: block;
@@ -58,7 +61,7 @@
     z-index: 1;
     color: white;
     position: relative;
-    top:650px;
+    top:700px;
     right:25%;
     float: left;
     font-size: 18px;

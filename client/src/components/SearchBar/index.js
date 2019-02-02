@@ -6,6 +6,7 @@ class SearchBar extends Component {
         searchTerm: ''
     }
     handleChange(e,props){
+        console.log(e.target.value)
         this.setState({searchTerm:e.target.value})
         props.updateTerm(e)
     }

@@ -6,8 +6,8 @@ export default {
     return axios.get("/api/samples");
   },
   // Gets the sample with the given id
-  getsample: function(name) {
-    return axios.get("/api/samples/" + name);
+  getsample: function(type) {
+    return axios.get("/api/samples/" + type);
   },
   // Deletes the sample with the given id
   deletesample: function(id) {
