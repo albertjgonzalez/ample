@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Arimo:700');
+@import url('https://fonts.googleapis.com/css?family=Nunito:300');
 .App {
   text-align: center;
   position: relative;
@@ -35,4 +36,8 @@ nav{
 Router{
   position: relative;
   top:0;
+}
+
+.ample{
+  font-family: 'Nunito', sans-serif;
 }

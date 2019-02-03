@@ -11,11 +11,15 @@ class App extends Component {
     return (
       <div className="App">
       <nav style={{background:`black`,width:`100%`,height:`60px`,top:`0`,verticalAlign:`middle`}} >
-      <div style={{float:`left`,fontSize:'24px',paddingBottom:`50px`}}>
-      <img style={{width:`30px`, marginTop:`10px`,marginLeft:`30px`}} src={logo}/>
-      <a href='/' style={{color:`white`, textDecoration:`none`,marginLeft:`20px`}} > ample</a>
+      <img style={{float:`left`,width:`30px`, marginTop:`15px`,marginLeft:`30px`, transform: `rotate(-90deg)`}} src={logo}/>
+      <a className="ample"href='/' style={{float:`left`,color:`white`, textDecoration:`none`,marginLeft:`30px`,marginTop:'15px', fontSize:`30px`}} > amples</a>
+      <div style={{float:`right`,marginRight:`30px`,marginTop:'20px', }}>
+
+      <div style={{float:`left`,diplay:`inline`,border:`none`,borderRight:`solid white 2px`,paddingRight:`5px`,marginRight:`5px`}} >
+      <a className="ample"href='/' style={{color:`white`, textDecoration:`none`,fontSize:`22px`,display:`inline`}}>join </a>
       </div>
-      <p style={{float:`right`,paddingRight:`20px`,color:`white`,marginTop:`20px`}}>login | join</p>
+      <a className="ample"href='/' style={{color:`white`, textDecoration:`none`,fontSize:`22px`,display:`inline`}}> login</a>
+      </div>
       </nav>
         <Router>
           <div>

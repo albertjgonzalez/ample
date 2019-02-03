@@ -15,24 +15,36 @@ class SearchBar extends Component {
             bar: {
                 width: `250px`,
                 height: `30px`,
-                border: `solid 5px white`,
                 backgroundColor: `Black`,
                 color:`white`,
-                marginTop:`100px`,
                 fontSize: `18px`,
-                paddingLeft: `1%`,
-                marginBottom:`2%`
+                paddingLeft: `10px`,
+                border: `none`,
+                borderRadius:`5%`,
+                margin: `none`
             },
             icon: {
-                width:`42px`,
+                width:`32px`,
                 position: `relative`,
-                top: `14px`
+                top:`10px`,
+                marginLeft:`5px`
+            },
+            searchWrapper:{
+                backgroundColor:`white`,
+                margin:`auto`,
+                marginBottom: `20px`,
+                width:`325px`,
+                height:'50px',
+                padding:`3px 0px 3px 0px`,
+                borderRadius:`2px`
             }
         }
         return (
             <div>
+            <div style={styles.searchWrapper}>
                 <input onChange={(e)=>this.handleChange(e,this.props)} style={styles.bar} name="" id="" class="btn btn-primary" type="text" placeholder='search samples' value={this.state.searchTerm} />
                 <img src={SearchIcon} style={styles.icon} onClick={this.props.handleSearch}/>
+            </div>
             </div>
         );
     }

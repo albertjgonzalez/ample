@@ -1,73 +1,113 @@
 @import url('https://fonts.googleapis.com/css?family=Arimo:700');
-
+@import url('https://fonts.googleapis.com/css?family=Nunito:300');
 #HomeContent {
-    height: 796px; 
+    z-index: -1;
+    height: 700px; 
+    width: 100%;
     font-family: 'Arimo', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
 }
 #MoreInfoContent {
-    height: 796px; 
+    z-index: -1;
+    height: 700px; 
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
 }
 #gradient{
+    z-index: 0;
     width: 100%;
     height: 400px;
     position: absolute;
-    top:412px;
+    top:300px;
     background: linear-gradient(#00000000, #000000);
 }
 #gradient2{
+    z-index: 0;
     width: 100%;
-    height: 100px;
+    height: 15px;
     position: absolute;
-    top:1492px;
+    top:1385px;
     background: linear-gradient(#00000000, #000000);
+}
+
+#headingDiv{
+    z-index: 1;
+    margin-top:80px;
+    margin-left: 2%;
+    align-items: center;
+    width: 500px;
+    height: 500px;
 }
 .heading1{
     z-index: 1;
     color: white;
-    position: relative;
-    top:100px;
-    float: left;
-    left:5%;
-    font-size: 62px;
-    display: block;
+    font-size: 68px;
 }
 .heading2{
-    z-index: 1;
-    color: white;
-    position: relative;
-    top:350px;
-    right:25%;
-    float: left;
-    font-size: 28px;
-    display: block;
+    z-index: -2;
+    color: rgb(255, 255, 255);
+    font-size: 34px;
+    margin-bottom: 50px;
 }
 
-#searchButton{
+#searchLink{
     z-index: 1;
     color: white;
-    position: relative;
-    top:550px;
-    right:45%;
-    float: left;
-    font-size: 18px;
-    display: block;
+    font-size: 24px;
     background-color: rgba(0, 0, 0, 0.493);
     border: none;
     border-radius: 5%;
     padding: 1% 2%;
+   position: relative;
+}
+#searchLink:hover{
+    text-decoration: underline;
 }
 
 #infoButton{
     z-index: 1;
     color: white;
-    position: relative;
-    top:700px;
-    right:25%;
-    float: left;
     font-size: 18px;
     display: block;
     background-color: rgba(0, 0, 0, 0);
     border: none;
     border-radius: 5%;
     padding: 1% 2%;
+}
+
+.buttonWrapper{
+    z-index: 1;
+}
+
+.infoPageText{
+    z-index: 1;
+    margin-top:75px;
+    margin-left: 2%;
+    align-items: center;
+    width: 400px;
+    height: 550px;
+    font-family: 'Nunito', sans-serif;
+    text-align: start;
+}
+
+.infoHeading1{
+    z-index: 1;
+    color: black;
+    font-size: 34px;
+    
+}
+.infoHeading2{
+    z-index: -2;
+    color: black;
+    font-size: 28px;
+    margin-bottom: 40px;
+}
+.infoHeading3{
+    z-index: -2;
+    color: black;
+    font-size: 26px;
 }

@@ -3,6 +3,7 @@ import API from '../../utils/API';
 import SearchBar from './../SearchBar';
 import cardBackground from './../../Images/cardBackground.png';
 import StripeCheckout from './../StripeCheckout';
+import Footer from './../Footer'
 import './style.css';
 
 class SearchPage extends Component {
@@ -19,18 +20,21 @@ class SearchPage extends Component {
         links: {
           display: `inline`,
           width: `100%`,
-          marginTop:``
+          marginTop:`10%`
         },
         cardHolder: {
             width:`80%`,
             height:`60%`,
             backgroundColor: `white`,
+            borderRadius:`1%`,
             margin: `auto`,
-            marginTop: `5%`
+            marginTop: `20px`,
+            marginBottom:`5%`
         },
         card: {
           width:`200px`,
           height:`200px`,
+          borderRadius:`1%`,
           backgroundColor: 'black',
           display:`inline-block`,
           margin:`20px`,
@@ -38,6 +42,9 @@ class SearchPage extends Component {
           float: `left`,
           backgroundImage: `url(${ cardBackground })`,
           backgroundSize: `cover`
+        },
+        SearchDiv: {
+          paddingTop:`75px`
         }
       }
   }
@@ -97,13 +104,15 @@ API.getsample(type)
     const styles = this.state.styles
       return (
         <div id='SearchContent'style={styles.main} >
-          <SearchBar updateTerm={(e)=>this.setSearchTerm(e)} handleSearch={()=>this.handleSearch()} />
+        <div style={styles.SearchDiv}className='searchDiv'>
+          <SearchBar style={styles.SearchBar} updateTerm={(e)=>this.setSearchTerm(e)} handleSearch={()=>this.handleSearch()} />
           <div style={styles.links} >
             <button onClick={(e)=>this.handleClick(e)} className='SearchLink' value={this.props.children}>kicks</button>
             <button onClick={(e)=>this.handleClick(e)} className='SearchLink' value={this.props.children}>hats</button>
             <button onClick={(e)=>this.handleClick(e)} className='SearchLink' value={this.props.children}>snares</button>
             <button onClick={(e)=>this.handleClick(e)} className='SearchLink' value={this.props.children}>synths</button>
             <button onClick={(e)=>this.handleClick(e)} className='SearchLink' value={this.props.children} name={'vocals'}>vocals</button>
+          </div>
           </div>
           {
             !this.state.search ?
@@ -116,6 +125,7 @@ API.getsample(type)
             function(){return <h1>Hello</h1>} :
             this.createCards(styles)}
                 </div>
+                <Footer />
           </div>
       )
     }
