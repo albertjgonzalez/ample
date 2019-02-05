@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import HomePage from './components/HomePage';
 import SearchPage from './components/SearchPage';
+import PrivacyPolicy from './components/PrivacyPolicy'
+import Contact from './components/ContactPage';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import logo from './Images/ampleLogo.png'
 
@@ -25,6 +27,8 @@ class App extends Component {
           <div>
              <Route path="/search" exact component={SearchPage} />
              <Route path="/" exact component={HomePage} />
+             <Route path="/privacyPolicy" exact component={PrivacyPolicy} />
+             <Route path="/contact" exact component={Contact} />
              </div>
         </Router>
       </div>

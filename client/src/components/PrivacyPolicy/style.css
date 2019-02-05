@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito:300');
+.policyWrapper{
+    font-family: 'Arimo', sans-serif;
+    height: 100%;
+   padding-top: 100px;
+   padding-bottom: 50px;
+}
+
+.policyContent{
+    margin-bottom: 20px; 
+    margin-top: 200px;
+    height: 100%;
+    padding: 10px;
+}

@@ -33,7 +33,7 @@ class HomePage extends Component {
 
                     <div id='headingDiv'>
                         <p className='heading1'>all samples <br /> $1 or less </p>
-                        <p className='heading2'>the worlds largest  <br /> online collection <br /> of music samples </p>
+                        <p className='heading2'>the worlds largest  <br /> online collection <br /> of audio samples </p>
                         <a href='/search' id='searchLink' style={{ textDecoration: `none`, color: `white` }}>search samples</a>
                     </div>
 

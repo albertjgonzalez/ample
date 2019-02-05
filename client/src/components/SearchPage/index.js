@@ -2,9 +2,12 @@ import  React, { Component } from 'react';
 import API from '../../utils/API';
 import SearchBar from './../SearchBar';
 import cardBackground from './../../Images/cardBackground.png';
-import StripeCheckout from './../StripeCheckout';
+import Checkout from './../Checkout';
+import { Media, Player, controls } from 'react-media-player'
 import Footer from './../Footer'
 import './style.css';
+
+const { PlayPause, MuteUnmute } = controls
 
 class SearchPage extends Component {
 
@@ -29,23 +32,36 @@ class SearchPage extends Component {
             borderRadius:`1%`,
             margin: `auto`,
             marginTop: `20px`,
-            marginBottom:`5%`
+            marginBottom:`5%`,
+            padding:`50px 75px 50px 75px`
         },
         card: {
           width:`200px`,
           height:`200px`,
-          borderRadius:`1%`,
-          backgroundColor: 'black',
+          borderRadius:`50%`,
+          backgroundColor: 'lightgrey',
           display:`inline-block`,
           margin:`20px`,
-          color:`white`,
+          color:`#DA1C5C`,
           float: `left`,
           backgroundImage: `url(${ cardBackground })`,
-          backgroundSize: `cover`
+          backgroundSize: `cover`,
+          fontSize: `24px`,
+          textShadow: `1px 1px black`
         },
         SearchDiv: {
           paddingTop:`75px`
-        }
+        },
+        playButton: {
+          marginTop:`-25px`,
+          marginBottom:`-5px`,
+        height:`90px`,
+        width:`200px`,
+        opacity:`0`,
+        color:`white`,
+        fontSize:`24px`,
+        border:`none`,
+        borderRadius:'20%'}
       }
   }
 
@@ -57,16 +73,32 @@ handleSearch(){
   this.setState({header:this.state.term})
   this.searchSamples(this.state.term)
 }
+
 createCards(styles){
+  var AudioPlayer = require('react-responsive-audio-player');
   let children = [];
   this.state.searchedSamples.map(sample=>{
       children.push(
       <div style={styles.card}className='sampleCard' >
-      <h1>{sample.name}</h1>
-          <a href={sample.link} download={sample.name}>
+      <p style={{marginTop:`34px`}}>{sample.name}</p>
+
+      <Media>
+        <div className="media">
+          <div className="media-player">
+            <Player src={sample.link} />
+          </div>
+          <div  className="media-controls">
+            <PlayPause style={styles.playButton} />
+          </div>
+        </div>
+      </Media>
+      <Checkout name={sample.name}/>
+          {/* <div>
+          <a style={{color:`white`,textDecoration:`none`,fontSize:`22px`}} href={sample.link} download={sample.name}>
           download
        </a>
-       <StripeCheckout />
+       </div> */}
+       
         </div>
       )
   })

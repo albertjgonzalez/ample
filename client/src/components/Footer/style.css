@@ -19,11 +19,13 @@
 
 .footerLinks a{
     color: rgb(187, 38, 38);
+    text-decoration: none;
 }
 
 .footerLinks{
 width: 300px;
 display: flex;
-justify-content: space-evenly;
+margin: auto;
+justify-content: space-between;
 margin-bottom: 10px;
 }
