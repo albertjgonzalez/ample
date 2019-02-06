@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import auth from './auth';
 class Register extends Component {
   constructor() {
     super();
@@ -22,6 +23,14 @@ const newUser = {
       password: this.state.password,
       password2: this.state.password2
     };
+    auth.join(newUser)
+    .catch(function (error) {
+      return console.log(error)
+    })
+    .then(res=>{
+         if(res) {
+          res.status == 200 ? alert('link to homepage and change nav bar') : alert('add fail message') }
+      })
 console.log(newUser);
   };
 render() {

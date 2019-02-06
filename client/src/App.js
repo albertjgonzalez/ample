@@ -11,6 +11,40 @@ import logo from './Images/ampleLogo.png'
 import "./App.css";
 
 class App extends Component {
+  
+    state = {
+    user: {
+      name:'',
+      email:'',
+      purchasedSamples:[]
+    }
+
+  }
+
+    componentWillMount(){
+      if(JSON.parse(localStorage.getItem('user'))){
+      const { name, email } = JSON.parse(localStorage.getItem('user'))
+      this.setState({user:{name,email}})}
+      console.log(JSON.parse(localStorage.getItem('user')))
+    }
+      navLogInCheck(){
+       return this.state.user.name === '' ? <div>
+          <div style={{float:`left`,diplay:`inline`,border:`none`,borderRight:`solid white 2px`,paddingRight:`5px`,marginRight:`5px`}} >
+          <a className="ample"href='/register' style={{color:`white`, textDecoration:`none`,fontSize:`22px`,display:`inline`}}>join </a>
+          </div>
+          <a className="ample"href='/login' style={{color:`white`, textDecoration:`none`,fontSize:`22px`,display:`inline`}}> login</a> </div>
+          :
+<div>
+          <div style={{float:`left`,diplay:`inline`,border:`none`,borderRight:`solid white 2px`,paddingRight:`5px`,marginRight:`5px`}} >
+          <a className="ample"href='/user' style={{color:`white`, textDecoration:`none`,fontSize:`22px`,display:`inline`}}>{ this.state.user.name } </a>
+          </div>
+          <a className="ample" onClick={this.signOut()} href='/signout' style={{color:`white`, textDecoration:`none`,fontSize:`22px`,display:`inline`}}> sign out</a> </div>
+        
+      }
+
+      signOut(){
+        localStorage.clear();
+      }
   render() { 
     return (
       <div className="App">
@@ -18,12 +52,8 @@ class App extends Component {
       <img style={{float:`left`,width:`30px`, marginTop:`15px`,marginLeft:`30px`}} src={logo}/>
       <a className="ample"href='/' style={{float:`left`,color:`white`, textDecoration:`none`,marginLeft:`30px`,marginTop:'15px', fontSize:`30px`}} > amples</a>
       <div style={{float:`right`,marginRight:`30px`,marginTop:'20px', }}>
-
-      <div style={{float:`left`,diplay:`inline`,border:`none`,borderRight:`solid white 2px`,paddingRight:`5px`,marginRight:`5px`}} >
-      <a className="ample"href='/' style={{color:`white`, textDecoration:`none`,fontSize:`22px`,display:`inline`}}>join </a>
-      </div>
-      <a className="ample"href='/' style={{color:`white`, textDecoration:`none`,fontSize:`22px`,display:`inline`}}> login</a>
-      </div>
+        { this.navLogInCheck() }
+        </div>
       </nav>
         <Router>
           <div>

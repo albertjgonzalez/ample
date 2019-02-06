@@ -1,9 +1,11 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import auth from './auth'
 class Login extends Component {
   constructor() {
     super();
     this.state = {
+        name:"",
       email: "",
       password: "",
       errors: {}
@@ -15,10 +17,24 @@ onChange = e => {
 onSubmit = e => {
     e.preventDefault();
 const userData = {
+    name: this.state.name,
       email: this.state.email,
       password: this.state.password
     };
-console.log(userData);
+    const userDataPublic = {
+      name: this.state.name,
+        email: this.state.email
+      };
+auth.login(userData)
+.catch(function (error) {
+  return alert('add fail message')
+})
+.then(res=>{
+     if(res) {
+      res.status == 200 ? alert('link to homepage and change nav bar') : alert('add fail message') }
+  })
+  localStorage.setItem('user', JSON.stringify(userDataPublic));
+console.log(userDataPublic)
   };
 render() {
     const { errors } = this.state;
@@ -39,6 +55,16 @@ return (
               </p>
             </div>
             <form noValidate onSubmit={this.onSubmit}>
+              <div className="input-field col">
+                <input
+                  onChange={this.onChange}
+                  value={this.state.name}
+                  error={errors.name}
+                  id="name"
+                  type="name"
+                />
+                <label htmlFor="email">Name</label>
+              </div>
               <div className="input-field col">
                 <input
                   onChange={this.onChange}

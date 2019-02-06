@@ -16,19 +16,19 @@ const User = require("../../models/users");
 // @access Public
 router.post("/register", (req, res) => {
     // Form validation
-  const { errors, isValid } = validateRegisterInput(req.body);
+  const { errors, isValid } = validateRegisterInput(req.body.Body);
   // Check validation
     if (!isValid) {
       return res.status(400).json(errors);
     }
-  User.findOne({ email: req.body.email }).then(user => {
+  User.findOne({ email: req.body.Body.email }).then(user => {
       if (user) {
         return res.status(400).json({ email: "Email already exists" });
       } 
   const newUser = new User({
-          name: req.body.name,
-          email: req.body.email,
-          password: req.body.password
+          name: req.body.Body.name,
+          email: req.body.Body.email,
+          password: req.body.Body.password
         });
   // Hash password before saving in database
         bcrypt.genSalt(10, (err, salt) => {
@@ -49,13 +49,13 @@ router.post("/register", (req, res) => {
 // @access Public
 router.post("/login", (req, res) => {
     // Form validation
-  const { errors, isValid } = validateLoginInput(req.body);
+  const { errors, isValid } = validateLoginInput(req.body.Body);
   // Check validation
     if (!isValid) {
       return res.status(400).json(errors);
     }
-  const email = req.body.email;
-    const password = req.body.password;
+  const email = req.body.Body.email;
+    const password = req.body.Body.password;
   // Find user by email
     User.findOne({ email }).then(user => {
       // Check if user exists
