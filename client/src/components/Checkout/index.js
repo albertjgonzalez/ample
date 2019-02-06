@@ -14,7 +14,7 @@ export default class Checkout extends React.Component {
         data: token
       }).then(response => {
       this.setState({paid:response.data.paid})
-        this.props.sendLink()
+        this.props.handleSend()
     });
   }
 
@@ -24,7 +24,7 @@ export default class Checkout extends React.Component {
     return (
       // ...
       <StripeCheckout
-      sendLink={this.props.sendLink}
+      handleSend = {()=>this.props.handleSend()}
       paid={this.state.paid}
       name={this.props.name} // the pop-in header title
   image={Logo} // the pop-in header image (default none)

@@ -6,7 +6,6 @@ import Checkout from './../Checkout';
 import { Media, Player, controls } from 'react-media-player'
 import Footer from './../Footer'
 import './style.css';
-import fileDownload from 'js-file-download';
 
 const { PlayPause, MuteUnmute } = controls
 
@@ -75,9 +74,9 @@ handleSearch(){
   this.searchSamples(this.state.term)
 }
 
-sendLink(link, name){
-    
-    fileDownload(link, name);
+sendLink(link){
+
+    window.location.href = link;
 
 }
 
@@ -99,7 +98,7 @@ createCards(styles){
           </div>
         </div>
       </Media>
-      <Checkout sendLink={()=>this.sendLink(sample.link, sample.name)} name={sample.name} paid={this.props.paid}/>
+      <Checkout handleSend={()=>this.sendLink(sample.link)} name={sample.name} paid={this.props.paid}/>
           {/* <div>
           <a style={{color:`white`,textDecoration:`none`,fontSize:`22px`}} href={sample.link} download={sample.name}>
           download
