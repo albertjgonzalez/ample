@@ -4,8 +4,8 @@ import HomePage from './components/HomePage';
 import SearchPage from './components/SearchPage';
 import PrivacyPolicy from './components/PrivacyPolicy'
 import Contact from './components/ContactPage';
-import AuthHelperMethods from './components/AuthHelperMethods';
-import withAuth from './components/withAuth';
+import Register from "./components/auth/Register";
+import Login from "./components/auth/Login";
 import logo from './Images/ampleLogo.png'
 
 import "./App.css";
@@ -27,8 +27,10 @@ class App extends Component {
       </nav>
         <Router>
           <div>
-             <Route path="/search" exact component={SearchPage} />
              <Route path="/" exact component={HomePage} />
+             <Route path="/search" exact component={SearchPage} />
+             <Route exact path="/register" component={Register} />
+             <Route exact path="/login" component={Login} />
              <Route path="/privacyPolicy" exact component={PrivacyPolicy} />
              <Route path="/contact" exact component={Contact} />
              </div>
