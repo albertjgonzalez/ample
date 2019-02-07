@@ -24,20 +24,20 @@ router.post('/findUser',(req,res)=>{
 // @access Public
 router.post("/register", (req, res) => {
     // Form validation
-  const { errors, isValid } = validateRegisterInput(req.body);
+  const { errors, isValid } = validateRegisterInput(req.body.Body);
   // Check validation
     if (!isValid) {
       return res.status(400).json(errors);
     }
-  User.findOne({ email: req.body.email }).then(user => {
+  User.findOne({ email: req.body.Body.email }).then(user => {
       if (user) {
         return res.status(400).json({ email: "Email already exists" });
       } 
   const newUser = new User({
-          name: req.body.name,
-          email: req.body.email,
-          password: req.body.password,
-          samples: req.body.samples
+          name: req.body.Body.name,
+          email: req.body.Body.email,
+          password: req.body.Body.password,
+          samples: req.body.Body.samples
         });
   // Hash password before saving in database
         bcrypt.genSalt(10, (err, salt) => {

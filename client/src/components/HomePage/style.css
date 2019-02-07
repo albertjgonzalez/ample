@@ -57,11 +57,11 @@
 #searchLink{
     z-index: 1;
     color: white;
-    font-size: 24px;
+    font-size: 16px;
     background-color: rgba(0, 0, 0, 0.493);
-    border: none;
+    border: solid white 1px;
     border-radius: 5%;
-    padding: 1% 2%;
+    padding: 4px 10px;
    position: relative;
 }
 #searchLink:hover{

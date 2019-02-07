@@ -2,26 +2,23 @@
 @import url('https://fonts.googleapis.com/css?family=Nunito:300');
 .userHistoryPage{
     width: 100%;
-    height: 600px;
+    height: 700px;
     background-color: lightgrey;
     padding-top: 70px; 
     font-family: 'Nunito', sans-serif;
+
 }
 
 .userSampleCardHolder{
-    height: 400px;
+    height: 300px;
     width: 80%;
     background-color: white;
     margin:auto;
     border-radius: 5px;
-    padding-top: 10px; 
+    padding:10px 50px 20px 50px;
     display: flex;
+    justify-content: space-between;
 }
-
-.userSampleCardHolder h1 {
-    -webkit-text-stroke-width: px;
-    -webkit-text-stroke-color: black;
- }
 
 .foot{
     position: fixed;
@@ -29,8 +26,28 @@
     right:0;
     left:0;
 }
+.cardHolderHeader{
+    width: 85%;
+    margin:100px auto -10px auto;
+    color: rgb(187, 38, 38);
+    font-size: 30px;
+}
+.samplesCol{
+    width: 75px;
+}
 
-.col{
-    width: 100%;
-    height: 20%;
+.collectionTypes{
+    border-bottom: solid 2px;
+}
+
+#searchLink2{
+    z-index: 1;
+    color: white;
+    font-size: 16px;
+    background-color: rgba(0, 0, 0, 0.493);
+    border: solid white 1px;
+    border-radius: 5%;
+    padding: 4px 10px;
+    position: relative;
+    top:-30px;
 }

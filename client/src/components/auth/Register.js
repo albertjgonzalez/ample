@@ -31,7 +31,7 @@ const newUser = {
     })
     .then(res=>{
          if(res) {
-          res.status == 200 ? alert('link to homepage and change nav bar') : alert('add fail message') }
+          res.status == 200 ? window.location = '/login' : alert('add fail message') }
       })
 console.log(newUser);
   };
@@ -40,16 +40,16 @@ render() {
 return (
       <div className="container loginContent">
         <div className="row loginFormWrapper">
-          <div className="col">
+          <div className="">
             
-            <div className="col" style={{ paddingTop: "10px" }}>
+            <div className="" style={{ paddingTop: "10px" }}>
               <h1>join</h1>
               <p className="grey-text">
                 Already have an account? <Link to="/login">Log in</Link>
               </p>
             </div>
             <form noValidate onSubmit={this.onSubmit}>
-              <div className="input-field col">
+              <div className="input-field ">
                 <input
                   placeholder='name'
                   onChange={this.onChange}
@@ -59,7 +59,7 @@ return (
                   type="text"
                 />
               </div>
-              <div className="input-field col">
+              <div className="input-field ">
                 <input
                   placeholder='email'
                   onChange={this.onChange}
@@ -69,7 +69,7 @@ return (
                   type="email"
                 />
               </div>
-              <div className="input-field col">
+              <div className="input-field ">
                 <input
                   placeholder='password'
                   onChange={this.onChange}
@@ -79,7 +79,7 @@ return (
                   type="password"
                 />
               </div>
-              <div className="input-field col">
+              <div className="input-field ">
                 <input
                   placeholder='confirm password'
                   onChange={this.onChange}
@@ -89,7 +89,7 @@ return (
                   type="password"
                 />
               </div>
-              <div className="col joinButton">
+              <div className=" joinButton">
                 <button
                   style={{
                     width: "150px",

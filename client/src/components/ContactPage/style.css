@@ -1,12 +1,12 @@
 @import url('https://fonts.googleapis.com/css?family=Nunito:300');
-.policyWrapper{
+.contactWrapper{
     font-family: 'Arimo', sans-serif;
     height: 450px;
    padding-top: 100px;
    padding-bottom: 50px;
 }
 
-.policyContent{
+.contactContent{
     margin-bottom: 20px; 
     margin-top: 200px;
     height: 100%;

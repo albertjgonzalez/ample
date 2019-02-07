@@ -29,10 +29,13 @@ auth.login(userData)
 })
 .then(res=>{
      if(res) {
-      res.status == 200 ? alert('link to homepage and change nav bar') : alert('add fail message') }
+      res.status == 200 ? 
+      
+      alert('add success message')  : alert('add fail message') }
     })
     auth.findUser(userData)
     .then(res=>{
+
       const samplelist = this.createSamplesObj(res.data[0].samples)
       const userDataPublic = {
         name: res.data[0].name,
@@ -40,10 +43,12 @@ auth.login(userData)
           samples: samplelist
         };
       localStorage.setItem('user', JSON.stringify(userDataPublic));
+      window.location = '/user'
     })
   };
 
   createSamplesObj(string){
+    if(string){
     const samplesArray=[]
     string = (JSON.stringify(string)).match(/\[(.*?)\]/g)
     string.map(sample=>{
@@ -51,21 +56,22 @@ auth.login(userData)
     })
     return samplesArray
   }
+  }
 render() {
     const { errors } = this.state;
 return (
       <div className="container loginContent">
         <div className="row loginFormWrapper">
-          <div className="col">
+          <div className="">
            
-            <div className="col" style={{ paddingTop: "40px" }}>
+            <div className="" style={{ paddingTop: "40px" }}>
                 <h1>login</h1>
               <p className="grey-text">
                 Don't have an account? <Link to="/register">Join</Link>
               </p>
             </div>
             <form noValidate className='loginForm' onSubmit={this.onSubmit}>
-              <div className="input-field col">
+              <div className="input-field ">
                 <input
                   placeholder='email'
                   onChange={this.onChange}
@@ -75,7 +81,7 @@ return (
                   type="email"
                 />
               </div>
-              <div className="input-field col">
+              <div className="input-field ">
                 <input
                   placeholder='password'
                   onChange={this.onChange}
@@ -85,7 +91,7 @@ return (
                   type="password"
                 />
               </div>
-              <div className="col loginButton">
+              <div className=" loginButton">
                 <button
                   style={{
                     width: "150px",

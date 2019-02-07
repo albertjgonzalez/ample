@@ -2,13 +2,23 @@
 .policyWrapper{
     font-family: 'Arimo', sans-serif;
     height: 100%;
-   padding-top: 100px;
-   padding-bottom: 50px;
+   padding: 100px;
+   padding-bottom: 150px;
+   background-color: lightgray;
 }
 
 .policyContent{
-    margin-bottom: 20px; 
-    margin-top: 200px;
     height: 100%;
-    padding: 10px;
+    padding: 40px;
+    width: 90%;
+    background-color: white;
+    margin:auto;
+    border-radius: 5px;
+}
+
+.foot{
+    position: fixed;
+    bottom: 0;
+    right:0;
+    left:0;
 }

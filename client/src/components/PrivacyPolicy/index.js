@@ -6,8 +6,8 @@ class PrivacyPolicy extends Component {
     render() {
         return (
             <div>
-            <div className='policyWrapper'style={{wdith:`900px`,backgroundColor:`lightgrey`}}>
-            <div className='policyContent'style={{width:`80%`,margin:`auto`,backgroundColor:`white`}}>
+            <div className='policyWrapper'>
+            <div className='policyContent'>
                 <h1>Privacy Policy</h1>
 
 
@@ -16,7 +16,7 @@ class PrivacyPolicy extends Component {
 
 <p>amples ("us", "we", or "our") operates the www.amples.com website (the "Service").</p>
 
-<p>This page informs you of our policies regarding the collection, use, and disclosure of personal data when you use our Service and the choices you have associated with that data. Our Privacy Policy  for amples is created with the help of the <a href="https://www.freeprivacypolicy.com/">Free Privacy Policy website</a>.</p>
+<p>This page informs you of our policies regarding the collection, use, and disclosure of personal data when you use our Service and the choices you have associated with that data.</p>
 
 <p>We use your data to provide and improve the Service. By using the Service, you agree to the collection and use of information in accordance with this policy. Unless otherwise defined in this Privacy Policy, terms used in this Privacy Policy have the same meanings as in our Terms and Conditions, accessible from www.amples.com</p>
 
@@ -108,13 +108,14 @@ class PrivacyPolicy extends Component {
 
 <h2>Contact Us</h2>
 <p>If you have any questions about this Privacy Policy, please contact us:</p>
-<ul>
-        <li>By email: ajgonzalez1114@gmail.com</li>
+
+        <p>By email: ajgonzalez1114@gmail.com</p>
           
-        </ul>
             </div>
             </div>
-            <Footer />
+            <div className='foot'>
+        <Footer />
+        </div>
             </div>
         );
     }
