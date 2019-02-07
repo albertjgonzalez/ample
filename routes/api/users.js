@@ -3,6 +3,7 @@ const router = express.Router();
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const keys = require("../../config/keys");
+const usersController = require("../../controllers/usersController");
 
 // Load input validation
 const validateRegisterInput = require("../../validation/register");
@@ -11,24 +12,32 @@ const validateLoginInput = require("../../validation/login");
 // Load User model
 const User = require("../../models/users");
 
+// @route POST api/users/findUser
+router.post('/findUser',(req,res)=>{
+  User.find({ email: req.body.email })
+  .then(dbModel => res.send(dbModel))
+  .catch(err => res.status(422).json(err)); 
+})
+
 // @route POST api/users/register
 // @desc Register user
 // @access Public
 router.post("/register", (req, res) => {
     // Form validation
-  const { errors, isValid } = validateRegisterInput(req.body.Body);
+  const { errors, isValid } = validateRegisterInput(req.body);
   // Check validation
     if (!isValid) {
       return res.status(400).json(errors);
     }
-  User.findOne({ email: req.body.Body.email }).then(user => {
+  User.findOne({ email: req.body.email }).then(user => {
       if (user) {
         return res.status(400).json({ email: "Email already exists" });
       } 
   const newUser = new User({
-          name: req.body.Body.name,
-          email: req.body.Body.email,
-          password: req.body.Body.password
+          name: req.body.name,
+          email: req.body.email,
+          password: req.body.password,
+          samples: req.body.samples
         });
   // Hash password before saving in database
         bcrypt.genSalt(10, (err, salt) => {

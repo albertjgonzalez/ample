@@ -16,6 +16,12 @@ module.exports = {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err)); 
   },
+  findByEmail: function(req, res) {
+    db.users
+      .find({email:req.body.email})
+      .then(dbModel => res(dbModel))
+      .catch(err => res.status(422).json(err)); 
+  },
   create: function(req, res) {
     db.samples
       .create(req.body)

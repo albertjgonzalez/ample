@@ -19,7 +19,8 @@ const UserSchema = new Schema({
     default: Date.now
   },
   samples: {
-    type: Array
+    type: Schema.Types.Mixed,
+
   }
 });
 module.exports = User = mongoose.model("users", UserSchema);

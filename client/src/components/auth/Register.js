@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import Footer from './../Footer'
+import './style.css';
 import auth from './auth';
 class Register extends Component {
   constructor() {
@@ -36,17 +38,12 @@ console.log(newUser);
 render() {
     const { errors } = this.state;
 return (
-      <div className="container">
-        <div className="row">
+      <div className="container loginContent">
+        <div className="row loginFormWrapper">
           <div className="col">
-            <Link to="/" className="">
-              <i className="">keyboard_backspace</i> Back to
-              home
-            </Link>
-            <div className="col" style={{ paddingLeft: "11.250px" }}>
-              <h4>
-                <b>Register</b> below
-              </h4>
+            
+            <div className="col" style={{ paddingTop: "10px" }}>
+              <h1>join</h1>
               <p className="grey-text">
                 Already have an account? <Link to="/login">Log in</Link>
               </p>
@@ -54,48 +51,49 @@ return (
             <form noValidate onSubmit={this.onSubmit}>
               <div className="input-field col">
                 <input
+                  placeholder='name'
                   onChange={this.onChange}
                   value={this.state.name}
                   error={errors.name}
                   id="name"
                   type="text"
                 />
-                <label htmlFor="name">Name</label>
               </div>
               <div className="input-field col">
                 <input
+                  placeholder='email'
                   onChange={this.onChange}
                   value={this.state.email}
                   error={errors.email}
                   id="email"
                   type="email"
                 />
-                <label htmlFor="email">Email</label>
               </div>
               <div className="input-field col">
                 <input
+                  placeholder='password'
                   onChange={this.onChange}
                   value={this.state.password}
                   error={errors.password}
                   id="password"
                   type="password"
                 />
-                <label htmlFor="password">Password</label>
               </div>
               <div className="input-field col">
                 <input
+                  placeholder='confirm password'
                   onChange={this.onChange}
                   value={this.state.password2}
                   error={errors.password2}
                   id="password2"
                   type="password"
                 />
-                <label htmlFor="password2">Confirm Password</label>
               </div>
-              <div className="col" style={{ paddingLeft: "11.250px" }}>
+              <div className="col joinButton">
                 <button
                   style={{
                     width: "150px",
+                    height: "30px",
                     borderRadius: "3px",
                     letterSpacing: "1.5px",
                     marginTop: "1rem"
@@ -107,6 +105,9 @@ return (
               </div>
             </form>
           </div>
+        </div>
+        <div className='foot'>
+        <Footer />
         </div>
       </div>
     );

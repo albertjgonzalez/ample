@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import HomePage from './components/HomePage';
+import UserHistory from './components/UserPages/UserHistory'
 import SearchPage from './components/SearchPage';
 import PrivacyPolicy from './components/PrivacyPolicy'
 import Contact from './components/ContactPage';
@@ -25,8 +26,8 @@ class App extends Component {
       if(JSON.parse(localStorage.getItem('user'))){
       const { name, email } = JSON.parse(localStorage.getItem('user'))
       this.setState({user:{name,email}})}
-      console.log(JSON.parse(localStorage.getItem('user')))
     }
+
       navLogInCheck(){
        return this.state.user.name === '' ? <div>
           <div style={{float:`left`,diplay:`inline`,border:`none`,borderRight:`solid white 2px`,paddingRight:`5px`,marginRight:`5px`}} >
@@ -38,7 +39,7 @@ class App extends Component {
           <div style={{float:`left`,diplay:`inline`,border:`none`,borderRight:`solid white 2px`,paddingRight:`5px`,marginRight:`5px`}} >
           <a className="ample"href='/user' style={{color:`white`, textDecoration:`none`,fontSize:`22px`,display:`inline`}}>{ this.state.user.name } </a>
           </div>
-          <a className="ample" onClick={this.signOut()} href='/signout' style={{color:`white`, textDecoration:`none`,fontSize:`22px`,display:`inline`}}> sign out</a> </div>
+          <a className="ample" onClick={this.signOut} href='/' style={{color:`white`, textDecoration:`none`,fontSize:`22px`,display:`inline`}}> sign out</a> </div>
         
       }
 
@@ -63,6 +64,7 @@ class App extends Component {
              <Route exact path="/login" component={Login} />
              <Route path="/privacyPolicy" exact component={PrivacyPolicy} />
              <Route path="/contact" exact component={Contact} />
+             <Route path="/user" exact render={()=><UserHistory samples={JSON.parse(localStorage.getItem('user'))}/>} />
              </div>
         </Router>
       </div>

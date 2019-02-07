@@ -54,7 +54,7 @@ class HomePage extends Component {
                     </div>
                 <div id='gradient2' />
                 </div>
-                <Footer />
+                <Footer style={{position:'relative'}} />
             </div>
         )
     }
