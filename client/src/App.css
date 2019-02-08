@@ -40,4 +40,9 @@ Router{
 
 .ample{
   font-family: 'Nunito', sans-serif;
+  color:white;
+}
+
+.ample:hover{
+  color:rgb(187, 38, 38);
 }

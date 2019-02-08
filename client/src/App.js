@@ -30,16 +30,16 @@ class App extends Component {
 
       navLogInCheck(){
        return this.state.user.name === '' ? <div>
-          <div style={{float:`left`,diplay:`inline`,border:`none`,borderRight:`solid white 2px`,paddingRight:`10px`,marginRight:`10px`}} >
-          <a className="ample"href='/register' style={{color:`white`, textDecoration:`none`,fontSize:`22px`,display:`inline`}}>join </a>
+          <div style={{float:`left`,diplay:`inline`,border:`none`,borderRight:`solid white 2px`,paddingRight:`20px`,marginRight:`20px`}} >
+          <a className="ample"href='/register' style={{ textDecoration:`none`,fontSize:`22px`,display:`inline`}}>join </a>
           </div>
-          <a className="ample"href='/login' style={{color:`white`, textDecoration:`none`,fontSize:`22px`,display:`inline`}}> login</a> </div>
+          <a className="ample"href='/login' style={{textDecoration:`none`,fontSize:`22px`,display:`inline`}}> login</a> </div>
           :
 <div>
-          <div style={{float:`left`,diplay:`inline`,border:`none`,borderRight:`solid white 2px`,paddingRight:`10px`,marginRight:`10px`}} >
-          <a className="ample"href='/user' style={{color:`white`, textDecoration:`none`,fontSize:`22px`,display:`inline`}}>{ this.state.user.name } </a>
+          <div style={{float:`left`,diplay:`inline`,border:`none`,borderRight:`solid white 2px`,paddingRight:`20px`,marginRight:`20px`}} >
+          <a className="ample"href='/user' style={{ textDecoration:`none`,fontSize:`22px`,display:`inline`}}>{ this.state.user.name } </a>
           </div>
-          <a className="ample" onClick={this.signOut} href='/' style={{color:`white`, textDecoration:`none`,fontSize:`22px`,display:`inline`}}> sign out</a> </div>
+          <a className="ample" onClick={this.signOut} href='/' style={{ textDecoration:`none`,fontSize:`22px`,display:`inline`}}> sign out</a> </div>
         
       }
 
@@ -51,7 +51,7 @@ class App extends Component {
       <div className="App">
       <nav style={{background:`black`,width:`100%`,height:`60px`,top:`0`,verticalAlign:`middle`}} >
       <img style={{float:`left`,width:`30px`, marginTop:`15px`,marginLeft:`30px`}} src={logo}/>
-      <a className="ample"href='/' style={{float:`left`,color:`white`, textDecoration:`none`,marginLeft:`30px`,marginTop:'15px', fontSize:`30px`}} > amples</a>
+      <a className="ample" href='/' style={{float:`left`, textDecoration:`none`,marginLeft:`30px`,marginTop:'15px', fontSize:`30px`}} > amples</a>
       <div style={{float:`right`,marginRight:`30px`,marginTop:'20px', }}>
         { this.navLogInCheck() }
         </div>

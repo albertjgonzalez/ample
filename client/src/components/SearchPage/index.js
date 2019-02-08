@@ -80,20 +80,33 @@ handleSearch(){
 }
 
 addNewSample(sample){
+  const savedSamples = [];
   const newSample = {name:sample.name, type:sample.type}
+  savedSamples.push(newSample)
   const { email,name,samples } = JSON.parse(localStorage.getItem('user'));
-      samples.push(newSample)
-      const userData = {
-        name: name,
-        email: email,
-    samples: samples,
-  }
-  axios.post('api/users/updateUser',userData)
+        if (samples != null){
+          samples.map(sample=>savedSamples.push(sample))
+          console.log({savedSamples})
+          var userPublicData = {
+            name: name,
+            email: email,
+        samples: savedSamples,
+      }
+        } else {
+          console.log(savedSamples)
+          var userPublicData = {
+            name: name,
+            email: email,
+        samples: savedSamples,
+      }
+        }
+      
+  axios.post('api/users/updateUser',userPublicData)
   .then(res=>{
     console.log(res)
-    localStorage.setItem('user', JSON.stringify(userData))
+    localStorage.setItem('user', JSON.stringify(userPublicData))
   })
-  // window.location.href = sample.link;
+  window.location.href = sample.link;
 }
 
 createCards(styles){
