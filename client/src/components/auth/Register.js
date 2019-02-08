@@ -26,12 +26,12 @@ const newUser = {
       password2: this.state.password2
     };
     auth.join(newUser)
-    .catch(function (error) {
-      return console.log(error)
-    })
     .then(res=>{
          if(res) {
-          res.status == 200 ? window.location = '/login' : alert('add fail message') }
+          res.status == 200 ? window.location = '/login' : alert(res.status) }
+      })
+      .catch(function (errors) {
+        alert(Object.values(errors.response.data))
       })
 console.log(newUser);
   };

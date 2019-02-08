@@ -19,32 +19,33 @@ onChange = e => {
 onSubmit = e => {
     e.preventDefault();
 const userData = {
-    name: this.state.name,
       email: this.state.email,
       password: this.state.password
     };
 auth.login(userData)
-.catch(function (error) {
-  return alert('add fail message')
-})
 .then(res=>{
      if(res) {
       res.status == 200 ? 
+      (auth.findUser(userData)
+      .then(res=>{
+        
+        const userDataPublic = {
+          name: res.data[0].name,
+            email: res.data[0].email,
+            samples: res.data[0].samples
+          };
+           localStorage.setItem('user', JSON.stringify(userDataPublic));
+         window.location = '/user'
+      }) ):
+      alert('res.status')
       
-      alert('add success message')  : alert('add fail message') }
-    })
-    auth.findUser(userData)
-    .then(res=>{
-
-      const userDataPublic = {
-        name: res.data[0].name,
-          email: res.data[0].email,
-          samples: res.data[0].samples
-        };
-         localStorage.setItem('user', JSON.stringify(userDataPublic));
-       window.location = '/user'
-    })
-  };
+        
+    }
+  })
+  .catch(function (errors) {
+    alert(Object.values(errors.response.data))
+  })
+}
 
 render() {
     const { errors } = this.state;
