@@ -13,6 +13,7 @@ export default class Checkout extends React.Component {
         url: '/charge',
         data: token
       }).then(response => {
+        console.log(response)
       this.setState({paid:response.data.paid})
         this.props.handleSend()
     });

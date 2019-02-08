@@ -19,10 +19,19 @@ router.post('/findUser',(req,res)=>{
   .catch(err => res.status(422).json(err)); 
 })
 
+// @route POST api/users/findUser
+router.post('/updateUser',(req,res)=>{
+
+  User.updateOne({ email: req.body.email }, { samples: req.body.samples })
+  .then(dbModel => res.send(dbModel))
+  .catch(err => res.status(422).json(err)); 
+})
+
 // @route POST api/users/register
 // @desc Register user
 // @access Public
 router.post("/register", (req, res) => {
+  console.log(req.body)
     // Form validation
   const { errors, isValid } = validateRegisterInput(req.body.Body);
   // Check validation

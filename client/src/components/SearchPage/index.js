@@ -1,6 +1,7 @@
 import  React, { Component } from 'react';
 import API from '../../utils/API';
 import SearchBar from './../SearchBar';
+import axios from 'axios'
 import cardBackground from './../../Images/cardBackground.png';
 import Checkout from './../Checkout';
 import { Media, Player, controls } from 'react-media-player'
@@ -10,6 +11,8 @@ import './style.css';
 const { PlayPause, MuteUnmute } = controls
 
 class SearchPage extends Component {
+
+  
 
     state = {
       searchedSamples: [],
@@ -65,6 +68,8 @@ class SearchPage extends Component {
       }
   }
 
+  
+
 setSearchTerm(e){
    this.setState({term:`${e.target.value}`})
 }
@@ -74,10 +79,21 @@ handleSearch(){
   this.searchSamples(this.state.term)
 }
 
-sendLink(link){
-
-    window.location.href = link;
-
+addNewSample(sample){
+  const newSample = {name:sample.name, type:sample.type}
+  const { email,name,samples } = JSON.parse(localStorage.getItem('user'));
+      samples.push(newSample)
+      const userData = {
+        name: name,
+        email: email,
+    samples: samples,
+  }
+  axios.post('api/users/updateUser',userData)
+  .then(res=>{
+    console.log(res)
+    localStorage.setItem('user', JSON.stringify(userData))
+  })
+  // window.location.href = sample.link;
 }
 
 createCards(styles){
@@ -98,7 +114,7 @@ createCards(styles){
           </div>
         </div>
       </Media>
-      <Checkout handleSend={()=>this.sendLink(sample.link)} name={sample.name} paid={this.props.paid}/>
+      <Checkout handleSend={()=>this.addNewSample(sample)} name={sample.name} paid={this.props.paid}/>
           {/* <div>
           <a style={{color:`white`,textDecoration:`none`,fontSize:`22px`}} href={sample.link} download={sample.name}>
           download
@@ -136,7 +152,6 @@ API.getsample(type)
 .then(res=>this.setState({searchedSamples:res.data}))
 .catch(err=>console.log(err))
 }
-
 
   render() {
     const styles = this.state.styles

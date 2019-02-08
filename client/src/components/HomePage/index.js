@@ -29,12 +29,12 @@ class HomePage extends Component {
         }
         return (
             <div>
-                <div className='container' id='HomeContent' style={styles.main}>
+                <div id='HomeContent' style={styles.main}>
 
                     <div id='headingDiv'>
                         <p className='heading1'>all samples <br /> $1 or less </p>
                         <p className='heading2'>the worlds largest  <br /> online collection <br /> of audio samples </p>
-                        <a href='/search' id='searchLink' style={{ textDecoration: `none`, color: `white` }}>collect samples</a>
+                        <a href={('/register')} id='searchLink' style={{ textDecoration: `none`, color: `white` }}>start collection</a>
                     </div>
 
                     <div className='buttonWrapper'>
@@ -44,7 +44,7 @@ class HomePage extends Component {
                     </button>
                     </div>
 
-                    <div id='gradient' />
+                    <div style={{height:'500px'}} id='gradient' />
                 </div>
                 <div ref={ (ref) => this.myRef=ref }id='MoreInfoContent' style={styles.moreinfo}>
                     <div className='infoPageText'>
@@ -53,8 +53,10 @@ class HomePage extends Component {
                     <p className='infoHeading3'>take your music to <br />the next level</p>
                     </div>
                 <div id='gradient2' />
+                <div style={{position:'relative', bottom:'0'}}>
+                <Footer />
                 </div>
-                <Footer style={{position:'relative'}} />
+                </div>
             </div>
         )
     }

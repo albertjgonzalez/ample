@@ -36,27 +36,16 @@ auth.login(userData)
     auth.findUser(userData)
     .then(res=>{
 
-      const samplelist = this.createSamplesObj(res.data[0].samples)
       const userDataPublic = {
         name: res.data[0].name,
           email: res.data[0].email,
-          samples: samplelist
+          samples: res.data[0].samples
         };
-      localStorage.setItem('user', JSON.stringify(userDataPublic));
-      window.location = '/user'
+         localStorage.setItem('user', JSON.stringify(userDataPublic));
+       window.location = '/user'
     })
   };
 
-  createSamplesObj(string){
-    if(string){
-    const samplesArray=[]
-    string = (JSON.stringify(string)).match(/\[(.*?)\]/g)
-    string.map(sample=>{
-      samplesArray.push({name:sample.match(/\'(.*?)\'/g)[0].replace(/['"]+/g, ''),type:sample.match(/\'(.*?)\'/g)[1].replace(/['"]+/g, '')})
-    })
-    return samplesArray
-  }
-  }
 render() {
     const { errors } = this.state;
 return (
