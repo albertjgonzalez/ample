@@ -12,7 +12,7 @@ class HomePage extends Component {
     }
 
     
-        scrollToMyRef = () => window.scrollTo(0, this.myRef.offsetTop)
+        scrollToMyRef = () => window.scrollTo({top:this.myRef.offsetTop, behavior: 'smooth'})
     
 
     render() {
@@ -34,7 +34,7 @@ class HomePage extends Component {
                     <div id='headingDiv'>
                         <p className='heading1'>all samples <br /> $1 or less </p>
                         <p className='heading2'>the worlds largest  <br /> online collection <br /> of audio samples </p>
-                        <a href={('/register')} id='searchLink' style={{ textDecoration: `none`, color: `white` }}>start collection</a>
+                        <a href={('/register')} id='searchLink' style={{ textDecoration: `none`}}>start collection</a>
                     </div>
 
                     <div className='buttonWrapper'>

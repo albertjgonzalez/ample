@@ -17,7 +17,7 @@ class UserHistory extends Component {
         <h2 className='collectionTypes'>Kicks</h2>
        {samples.map(sample=>{
            if(sample.type == 'kicks'){
-               return <h3>{sample.name}</h3>
+               return <h3>{sample.name+ sample.link}</h3>
            }
        })}
        </div>

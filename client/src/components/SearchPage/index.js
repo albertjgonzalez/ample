@@ -1,5 +1,6 @@
 import  React, { Component } from 'react';
 import API from '../../utils/API';
+import Custombutton from './../../Images/playbuttoncustom.png'
 import SearchBar from './../SearchBar';
 import axios from 'axios'
 import cardBackground from './../../Images/cardBackground.png';
@@ -41,13 +42,12 @@ class SearchPage extends Component {
         card: {
           width:`200px`,
           height:`200px`,
-          borderRadius:`50%`,
-          backgroundColor: 'lightgrey',
+          borderRadius: `5px`,
+          backgroundColor: 'black',
           display:`inline-block`,
           margin:`20px`,
           color:`#DA1C5C`,
           float: `left`,
-          backgroundImage: `url(${ cardBackground })`,
           backgroundSize: `cover`,
           fontSize: `24px`,
           textShadow: `1px 1px black`
@@ -56,15 +56,21 @@ class SearchPage extends Component {
           paddingTop:`75px`
         },
         playButton: {
+          backgroundSize: `cover`,
           marginTop:`-25px`,
-          marginBottom:`-5px`,
-        height:`90px`,
+          opacity:`0`,
+        height:`80px`,
         width:`200px`,
-        opacity:`0`,
-        color:`white`,
+        color:`black`,
         fontSize:`24px`,
         border:`none`,
-        borderRadius:'20%'}
+        borderRadius:'20%'
+      },
+      custombutton: {
+        marginBottom:`-40px`,
+        height:`40px`,
+        width:`40px`,
+       }
       }
   }
 
@@ -81,7 +87,7 @@ handleSearch(){
 
 addNewSample(sample){
   const savedSamples = [];
-  const newSample = {name:sample.name, type:sample.type}
+  const newSample = {name:sample.name, type:sample.type, link:sample.link }
   savedSamples.push(newSample)
   const { email,name,samples } = JSON.parse(localStorage.getItem('user'));
         if (samples != null){
@@ -115,12 +121,13 @@ createCards(styles){
   this.state.searchedSamples.map(sample=>{
       children.push(
       <div style={styles.card}className='sampleCard' >
-      <p style={{marginTop:`34px`}}>{sample.name}</p>
+      <p style={{marginTop:`34px`, marginBottom:`-10px`}}>{sample.name}</p>
 
       <Media>
         <div className="media">
           <div className="media-player">
             <Player src={sample.link} />
+            <img style={styles.custombutton} className='customPlayButtom' src={Custombutton}/>
           </div>
           <div  className="media-controls">
             <PlayPause style={styles.playButton} />
