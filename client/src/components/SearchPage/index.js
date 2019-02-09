@@ -30,13 +30,13 @@ class SearchPage extends Component {
         },
         cardHolder: {
             width:`80%`,
-            height:`60%`,
+            height:`50%`,
             backgroundColor: `white`,
             borderRadius:`1%`,
             margin: `auto`,
             marginTop: `20px`,
             marginBottom:`5%`,
-            padding:`50px 75px 50px 75px`
+            padding:`20px 75px 50px 75px`
         },
         card: {
           width:`200px`,

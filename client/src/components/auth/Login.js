@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Footer from './../Footer'
 import './style.css';
+import ReactDOM from 'react-dom';
+import Modal from 'react-modal';
 import auth from './auth'
 class Login extends Component {
   constructor() {
